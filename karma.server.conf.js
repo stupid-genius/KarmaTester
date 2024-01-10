@@ -38,13 +38,13 @@ module.exports = function(config) {
 		// loggers: [
 		// 	{type: 'console'}
 		// ],
-		client: {
-			captureConsole: true
-		},
 		// browserConsoleLogOptions: {
 		// 	level: 'log',
 		// 	format: '%b %T: %m',
 		// 	terminal: true,
+		// },
+		// client: {
+		// 	captureConsole: true
 		// },
 		// enable / disable watching file and executing tests whenever any file changes
 		autoWatch: false,

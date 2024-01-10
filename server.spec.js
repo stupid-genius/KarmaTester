@@ -1,6 +1,6 @@
-const assert = require('chai').assert;
+const { assert } = require('chai');
 
-describe('Client', function(){
+describe('Server', function(){
 	it('should have tests', function(){
 		assert.equal(1 + 1, 2);
 	});
