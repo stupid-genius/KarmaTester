@@ -1,7 +1,14 @@
-const assert = require('chai').assert;
+const { assert } = require('chai');
+import Logger from './blogger';
+
+const logger = new Logger('spec.js');
 
 describe('Client', function(){
+	before(function(){
+		Logger.setLogLevel('debug');
+	});
 	it('should have tests', function(){
+		logger.info('browser logs!');
 		assert.equal(1 + 1, 2);
 	});
 });
