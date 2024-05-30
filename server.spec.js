@@ -1,6 +1,6 @@
 const { assert } = require('chai');
+const Logger = require('log-ng');
 const path = require('path');
-const Logger = require('./logger');
 
 const logger = new Logger(path.basename(__filename));
 

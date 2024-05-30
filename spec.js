@@ -1,5 +1,5 @@
 const { assert } = require('chai');
-import Logger from './blogger';
+const { default: Logger } = require('log-ng');
 
 const logger = new Logger('spec.js');
 
