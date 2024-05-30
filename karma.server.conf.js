@@ -1,5 +1,6 @@
 // Karma configuration
 // Generated on Fri Jan 05 2024 15:51:09 GMT-0500 (Eastern Standard Time)
+const fs = require('fs');
 
 module.exports = function(config) {
 	config.set({
@@ -21,15 +22,23 @@ module.exports = function(config) {
 			'spec.js': ['esbuild']
 		},
 		esbuild: {
-			target: 'es2022',
+			bundle: true,
+			// external: [],
 			// format: 'cjs'
+			// platform: 'node',
+			target: 'es2022'
 		},
 		// test results reporter to use
 		// possible values: 'dots', 'progress'
 		// available reporters: https://www.npmjs.com/search?q=keywords:karma-reporter
 		reporters: ['mocha'],
+		// protocol: 'https:',
 		// web server port
 		port: 9876,
+		// httpsServerOptions: {
+		// 	key: fs.readFileSync('key.pem'),
+		// 	cert: fs.readFileSync('cert.pem'),
+		// },
 		// enable / disable colors in the output (reporters and logs)
 		colors: true,
 		// level of logging
@@ -38,25 +47,30 @@ module.exports = function(config) {
 		// loggers: [
 		// 	{type: 'console'}
 		// ],
+		client: {
+			// allowConsoleLogs: false,
+			captureConsole: true
+		},
 		// browserConsoleLogOptions: {
 		// 	level: 'log',
 		// 	format: '%b %T: %m',
 		// 	terminal: true,
-		// },
-		// client: {
-		// 	captureConsole: true
 		// },
 		// enable / disable watching file and executing tests whenever any file changes
 		autoWatch: false,
 		customLaunchers: {
 			ChromeHeadlessSecure: {
                 base: 'ChromeHeadless',
-				flags: ['--disable-web-security', '--enable-features=SharedArrayBuffer']
+				flags: [
+					'--disable-web-security',
+					'--ignore-certificate-errors',
+					'--enable-features=SharedArrayBuffer'
+				]
             },
             FirefoxHeadlessSecure: {
                 base: 'Firefox',
 				prefs: {
-					'javascript.options.shared_memory': true,
+					// 'javascript.options.shared_memory': true,
 					// 'dom.postMessage.sharedArrayBuffer.withCOOP_COEP': true,
 					// 'security.fileuri.strict_origin_policy': false,
 					// 'security.fileuri.origin_policy': 'null',
@@ -64,7 +78,11 @@ module.exports = function(config) {
 					// 'security.sandbox.content.level': 0,
 					// 'network.http.use-cache': false
 				},
-				// flags: ['-headless', '--disable-gpu']
+				flags: [
+					'-headless',
+					// '--disable-gpu',
+					// '--allow-insecure-localhost'
+				]
             },
 			FirefoxHeadless: {
 				base: 'Firefox',
