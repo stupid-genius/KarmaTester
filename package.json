@@ -25,7 +25,6 @@
     "karma-mocha": "^2.0.1",
     "karma-mocha-reporter": "^2.2.5",
     "log-ng": "github:stupid-genius/log-ng",
-    "mocha": "^10.2.0",
-    "winston": "^3.11.0"
+    "mocha": "^10.2.0"
   }
 }

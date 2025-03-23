@@ -6,7 +6,7 @@ const path = require('path');
 Logger({logLevel: 'info', logFile: 'karmaTest.log'});
 const logger = new Logger(path.basename(__filename));
 
-const app = require('./testServer');
+const app = require('./testServer.js');
 const mocha = new Mocha();
 
 function runServerTests(specPath){
@@ -44,7 +44,7 @@ function runBrowserTests(configPath){
 
 		server.start();
 	});
-};
+}
 
 const testServer = app.listen(3000, 'localhost', async () => {
 	try{

@@ -60,15 +60,15 @@ module.exports = function(config) {
 		autoWatch: false,
 		customLaunchers: {
 			ChromeHeadlessSecure: {
-                base: 'ChromeHeadless',
+				base: 'ChromeHeadless',
 				flags: [
 					'--disable-web-security',
 					'--ignore-certificate-errors',
 					'--enable-features=SharedArrayBuffer'
 				]
-            },
-            FirefoxHeadlessSecure: {
-                base: 'Firefox',
+			},
+			FirefoxHeadlessSecure: {
+				base: 'Firefox',
 				prefs: {
 					// 'javascript.options.shared_memory': true,
 					// 'dom.postMessage.sharedArrayBuffer.withCOOP_COEP': true,
@@ -83,7 +83,7 @@ module.exports = function(config) {
 					// '--disable-gpu',
 					// '--allow-insecure-localhost'
 				]
-            },
+			},
 			FirefoxHeadless: {
 				base: 'Firefox',
 				flags: ['-headless']
@@ -101,5 +101,5 @@ module.exports = function(config) {
 		concurrency: Infinity,
 		// browserDisconnectTimeout: 10000,
 		// browserNoActivityTimeout: 300000
-	})
-}
+	});
+};
